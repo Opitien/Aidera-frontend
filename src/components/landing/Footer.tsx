@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Heart } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -6,42 +7,47 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div>
-            <Link to="/" className="font-display text-xl font-bold text-foreground">
-              Aidera
+            <Link to="/" className="flex items-center gap-2 mb-3">
+              <Heart className="h-5 w-5 text-primary" />
+              <span className="font-display text-xl font-bold text-foreground">Aidera</span>
             </Link>
-            <p className="text-sm text-muted-foreground mt-3 max-w-xs">
-              AI-powered execution platform for modern businesses and creators.
+            <p className="text-sm text-muted-foreground max-w-xs">
+              AI-powered health guidance to help you understand your medical information with clarity and confidence.
             </p>
           </div>
           <div>
             <h4 className="font-semibold text-sm text-foreground mb-3">Product</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><a href="#features" className="hover:text-foreground transition-colors">Features</a></li>
-              <li><a href="#pricing" className="hover:text-foreground transition-colors">Pricing</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Integrations</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Changelog</a></li>
+              <li><a href="#how-it-works" className="hover:text-foreground transition-colors">How It Works</a></li>
+              <li><a href="#safety" className="hover:text-foreground transition-colors">Safety</a></li>
+              <li><a href="#faq" className="hover:text-foreground transition-colors">FAQ</a></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-sm text-foreground mb-3">Company</h4>
+            <h4 className="font-semibold text-sm text-foreground mb-3">Contact</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">About</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Blog</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Contact</a></li>
+              <li><a href="mailto:hello@aidera.ai" className="hover:text-foreground transition-colors">hello@aidera.ai</a></li>
+              <li><a href="mailto:support@aidera.ai" className="hover:text-foreground transition-colors">support@aidera.ai</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors">Instagram: @aidera_ai</a></li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold text-sm text-foreground mb-3">Legal</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">Privacy</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Terms</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Security</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors">Terms of Service</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors">Medical Disclaimer</a></li>
             </ul>
           </div>
         </div>
-        <div className="border-t border-border pt-6 text-center text-sm text-muted-foreground">
-          © 2026 Aidera. All rights reserved.
+        <div className="border-t border-border pt-6">
+          <p className="text-center text-sm text-muted-foreground mb-2">
+            © 2026 Aidera. All rights reserved.
+          </p>
+          <p className="text-center text-xs text-muted-foreground max-w-2xl mx-auto">
+            Aidera provides AI-generated health insights for informational purposes only. It does not provide medical diagnoses, treatment plans, or prescriptions. Always consult a licensed healthcare professional for medical advice.
+          </p>
         </div>
       </div>
     </footer>

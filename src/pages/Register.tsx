@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -9,23 +10,30 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
+  const navigate = useNavigate();
+
+  const handleRegister = (e: React.FormEvent) => {
+    e.preventDefault();
+    navigate("/chat");
+  };
 
   return (
     <div className="min-h-screen gradient-hero flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <Link to="/" className="font-display text-2xl font-bold text-foreground">
-            Aidera
+          <Link to="/" className="inline-flex items-center gap-2">
+            <Heart className="h-6 w-6 text-primary" />
+            <span className="font-display text-2xl font-bold text-foreground">Aidera</span>
           </Link>
         </div>
         <div className="bg-card rounded-2xl shadow-card border border-border p-8">
           <h1 className="font-display text-2xl font-bold text-foreground mb-1">Create your account</h1>
-          <p className="text-sm text-muted-foreground mb-6">Start your free trial — no credit card required.</p>
+          <p className="text-sm text-muted-foreground mb-6">Start your health journey with Aidera.</p>
 
-          <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+          <form className="space-y-4" onSubmit={handleRegister}>
             <div className="space-y-2">
               <Label htmlFor="name">Full Name</Label>
-              <Input id="name" placeholder="John Doe" value={name} onChange={(e) => setName(e.target.value)} />
+              <Input id="name" placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} />
             </div>
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
@@ -39,8 +47,8 @@ const Register = () => {
               <Label htmlFor="confirm">Confirm Password</Label>
               <Input id="confirm" type="password" placeholder="••••••••" value={confirm} onChange={(e) => setConfirm(e.target.value)} />
             </div>
-            <Button className="w-full" size="lg" asChild>
-              <Link to="/dashboard">Create Account</Link>
+            <Button className="w-full" size="lg" type="submit">
+              Create Account
             </Button>
           </form>
 
