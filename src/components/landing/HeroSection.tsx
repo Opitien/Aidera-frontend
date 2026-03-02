@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Heart, Shield, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
@@ -13,32 +13,36 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <div className="inline-flex items-center gap-2 bg-accent text-accent-foreground text-sm font-medium px-4 py-1.5 rounded-full mb-6">
-              <span className="w-2 h-2 rounded-full gradient-primary" />
-              Now in Public Beta
+            <div className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground text-sm font-medium px-4 py-1.5 rounded-full mb-6">
+              <Heart className="w-3.5 h-3.5" />
+              Your Health, Simplified
             </div>
 
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-800 leading-[1.1] tracking-tight text-foreground mb-6">
-              AI Execution for{" "}
-              <span className="text-gradient">Modern Businesses</span>
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-foreground mb-6">
+              AI-Powered Health{" "}
+              <span className="text-gradient">Guidance, Simplified.</span>
             </h1>
 
             <p className="text-lg text-muted-foreground max-w-lg mb-8 leading-relaxed">
-              Automate workflows, manage data, and interact with AI tools from one powerful dashboard. Built for teams that move fast.
+              Understand your medical records. Ask health questions. Get clear AI-powered explanations — all in a calm, supportive environment.
             </p>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 mb-6">
               <Button size="lg" asChild className="text-base px-8 h-12">
                 <Link to="/register">
                   Get Started
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="text-base px-8 h-12">
-                <Play className="mr-2 h-4 w-4" />
-                Book Demo
+              <Button size="lg" variant="outline" asChild className="text-base px-8 h-12">
+                <Link to="/login">Log In</Link>
               </Button>
             </div>
+
+            <p className="text-xs text-muted-foreground max-w-md leading-relaxed">
+              <Shield className="inline h-3 w-3 mr-1 -mt-0.5" />
+              Aidera provides AI-generated health insights and does not replace professional medical advice.
+            </p>
           </motion.div>
 
           <motion.div
@@ -48,38 +52,33 @@ const HeroSection = () => {
             className="relative"
           >
             <div className="bg-card rounded-2xl shadow-card border border-border p-6 lg:p-8">
-              <div className="flex items-center gap-2 mb-6">
-                <div className="w-3 h-3 rounded-full bg-destructive/60" />
-                <div className="w-3 h-3 rounded-full bg-accent-foreground/30" />
-                <div className="w-3 h-3 rounded-full bg-primary/40" />
+              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-border">
+                <div className="w-8 h-8 rounded-full gradient-primary flex items-center justify-center">
+                  <Heart className="h-4 w-4 text-primary-foreground" />
+                </div>
+                <span className="font-display font-semibold text-foreground">Aidera Assistant</span>
               </div>
               <div className="space-y-4">
-                <div className="flex gap-4">
-                  {["12,847", "24", "98.2%"].map((val, i) => (
-                    <div key={i} className="flex-1 bg-accent rounded-xl p-4">
-                      <div className="text-xs text-muted-foreground mb-1">
-                        {["Operations", "Workflows", "Uptime"][i]}
-                      </div>
-                      <div className="font-display text-lg font-bold text-foreground">{val}</div>
-                    </div>
-                  ))}
+                <div className="flex gap-3">
+                  <div className="w-7 h-7 rounded-full bg-accent flex items-center justify-center shrink-0 mt-0.5">
+                    <MessageCircle className="h-3.5 w-3.5 text-accent-foreground" />
+                  </div>
+                  <div className="bg-accent rounded-2xl rounded-tl-md px-4 py-3 text-sm text-foreground leading-relaxed">
+                    Hello! I'm here to help you understand your health better. You can ask me questions or upload a medical document.
+                  </div>
                 </div>
-                <div className="bg-accent rounded-xl p-4 h-32 flex items-end gap-1">
-                  {[40, 65, 55, 80, 70, 90, 60, 85, 75, 95, 70, 88].map((h, i) => (
-                    <div
-                      key={i}
-                      className="flex-1 gradient-primary rounded-sm opacity-80"
-                      style={{ height: `${h}%` }}
-                    />
-                  ))}
+                <div className="flex gap-3 justify-end">
+                  <div className="bg-primary rounded-2xl rounded-tr-md px-4 py-3 text-sm text-primary-foreground leading-relaxed max-w-[80%]">
+                    Can you explain what my blood test results mean?
+                  </div>
                 </div>
                 <div className="flex gap-3">
-                  {[1, 2, 3].map((i) => (
-                    <div key={i} className="flex-1 bg-accent rounded-lg p-3">
-                      <div className="h-2 w-2/3 bg-muted-foreground/20 rounded mb-2" />
-                      <div className="h-2 w-full bg-muted-foreground/10 rounded" />
-                    </div>
-                  ))}
+                  <div className="w-7 h-7 rounded-full bg-accent flex items-center justify-center shrink-0 mt-0.5">
+                    <MessageCircle className="h-3.5 w-3.5 text-accent-foreground" />
+                  </div>
+                  <div className="bg-accent rounded-2xl rounded-tl-md px-4 py-3 text-sm text-foreground leading-relaxed">
+                    Of course! Please share your results and I'll help you understand each value in simple terms. 💙
+                  </div>
                 </div>
               </div>
             </div>

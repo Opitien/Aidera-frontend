@@ -12,14 +12,14 @@ const HowItWorksSection = () => {
           className="text-center mb-16"
         >
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            How it works
+            How It Works
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Get up and running in three simple steps.
+            Getting health guidance has never been simpler.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-12 max-w-4xl mx-auto">
           {steps.map((step, i) => (
             <motion.div
               key={step.title}
