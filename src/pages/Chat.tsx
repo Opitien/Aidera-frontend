@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Send, Plus, Heart, Upload, Shield } from "lucide-react";
+import { Send, Plus, Upload, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import AideraLogo from "@/components/AideraLogo";
 import { mockChatMessages, mockAIResponses } from "@/data/mockData";
+import useSEO from "@/hooks/useSEO";
 
 interface ChatMessage {
   id: string;
@@ -14,7 +16,7 @@ interface ChatMessage {
 const TypingIndicator = () => (
   <div className="flex gap-3">
     <div className="w-7 h-7 rounded-full bg-accent flex items-center justify-center shrink-0 mt-0.5">
-      <Heart className="h-3.5 w-3.5 text-primary" />
+      <AideraLogo size={16} className="text-primary" />
     </div>
     <div className="bg-accent rounded-2xl rounded-tl-md px-4 py-3 flex items-center gap-1.5">
       <div className="w-2 h-2 rounded-full bg-muted-foreground/40 animate-typing-dot" />
@@ -25,6 +27,11 @@ const TypingIndicator = () => (
 );
 
 const Chat = () => {
+  useSEO({
+    title: "Chat – Aidera Health Assistant",
+    description: "Chat with Aidera, your AI-powered health assistant. Ask health questions and get clear, supportive guidance.",
+  });
+
   const [messages, setMessages] = useState<ChatMessage[]>(mockChatMessages);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
@@ -101,7 +108,7 @@ const Chat = () => {
       {/* Top bar */}
       <header className="h-14 border-b border-border bg-card flex items-center justify-between px-4 shrink-0">
         <Link to="/" className="flex items-center gap-2">
-          <Heart className="h-5 w-5 text-primary" />
+          <AideraLogo size={22} className="text-primary" />
           <span className="font-display font-bold text-foreground">Aidera</span>
         </Link>
         <Button variant="outline" size="sm" onClick={handleNewChat}>
@@ -125,7 +132,7 @@ const Chat = () => {
             <div key={msg.id} className={`flex gap-3 ${msg.role === "user" ? "justify-end" : ""}`}>
               {msg.role === "assistant" && (
                 <div className="w-7 h-7 rounded-full bg-accent flex items-center justify-center shrink-0 mt-0.5">
-                  <Heart className="h-3.5 w-3.5 text-primary" />
+                  <AideraLogo size={16} className="text-primary" />
                 </div>
               )}
               <div

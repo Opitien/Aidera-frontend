@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Heart } from "lucide-react";
+import AideraLogo from "@/components/AideraLogo";
 
 const Footer = () => {
   return (
@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div>
             <Link to="/" className="flex items-center gap-2 mb-3">
-              <Heart className="h-5 w-5 text-primary" />
+              <AideraLogo size={22} className="text-primary" />
               <span className="font-display text-xl font-bold text-foreground">Aidera</span>
             </Link>
             <p className="text-sm text-muted-foreground max-w-xs">

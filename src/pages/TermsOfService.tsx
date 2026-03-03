@@ -1,7 +1,13 @@
 import LandingNavbar from "@/components/landing/LandingNavbar";
 import Footer from "@/components/landing/Footer";
+import useSEO from "@/hooks/useSEO";
 
 const TermsOfService = () => {
+  useSEO({
+    title: "Terms of Service – Aidera",
+    description: "Read the Terms of Service for Aidera, an AI-powered health assistant. Understand your rights, responsibilities, and our limitation of liability.",
+  });
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <LandingNavbar />

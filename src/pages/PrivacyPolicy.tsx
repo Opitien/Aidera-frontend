@@ -1,7 +1,13 @@
 import LandingNavbar from "@/components/landing/LandingNavbar";
 import Footer from "@/components/landing/Footer";
+import useSEO from "@/hooks/useSEO";
 
 const PrivacyPolicy = () => {
+  useSEO({
+    title: "Privacy Policy – Aidera",
+    description: "Learn how Aidera collects, uses, and protects your personal and health data. Your privacy is our priority. Read our full privacy policy.",
+  });
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <LandingNavbar />
