@@ -1,11 +1,17 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import AideraLogo from "@/components/AideraLogo";
+import useSEO from "@/hooks/useSEO";
 
 const Login = () => {
+  useSEO({
+    title: "Log In – Aidera",
+    description: "Sign in to your Aidera account to access your AI-powered health assistant.",
+  });
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -20,7 +26,7 @@ const Login = () => {
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center gap-2">
-            <Heart className="h-6 w-6 text-primary" />
+            <AideraLogo size={28} className="text-primary" />
             <span className="font-display text-2xl font-bold text-foreground">Aidera</span>
           </Link>
         </div>

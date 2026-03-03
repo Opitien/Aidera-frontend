@@ -1,7 +1,13 @@
 import LandingNavbar from "@/components/landing/LandingNavbar";
 import Footer from "@/components/landing/Footer";
+import useSEO from "@/hooks/useSEO";
 
 const MedicalDisclaimer = () => {
+  useSEO({
+    title: "Medical Disclaimer – Aidera",
+    description: "Aidera provides AI-generated health guidance only. It does not diagnose, treat, or replace licensed medical professionals. Read our full medical disclaimer.",
+  });
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <LandingNavbar />

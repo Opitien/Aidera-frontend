@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Heart } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import AideraLogo from "@/components/AideraLogo";
 
 const LandingNavbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -10,7 +11,7 @@ const LandingNavbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
         <Link to="/" className="flex items-center gap-2">
-          <Heart className="h-6 w-6 text-primary" />
+          <AideraLogo size={26} className="text-primary" />
           <span className="font-display text-xl font-bold text-foreground tracking-tight">Aidera</span>
         </Link>
 
