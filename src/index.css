@@ -6,54 +6,54 @@
 
 @layer base {
   :root {
-    --background: 210 25% 97%;
-    --foreground: 210 20% 12%;
+    --background: 200 16% 95%;
+    --foreground: 220 20% 14%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 20% 12%;
+    --card-foreground: 220 20% 14%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 20% 12%;
+    --popover-foreground: 220 20% 14%;
 
-    --primary: 210 80% 50%;
+    --primary: 240 63% 27%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 174 42% 93%;
-    --secondary-foreground: 174 50% 28%;
+    --secondary: 200 16% 93%;
+    --secondary-foreground: 240 63% 27%;
 
-    --muted: 210 20% 94%;
-    --muted-foreground: 210 12% 46%;
+    --muted: 200 14% 92%;
+    --muted-foreground: 220 10% 46%;
 
-    --accent: 210 60% 95%;
-    --accent-foreground: 210 80% 42%;
+    --accent: 200 18% 94%;
+    --accent-foreground: 240 63% 22%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 18% 90%;
-    --input: 210 18% 90%;
-    --ring: 210 80% 50%;
+    --border: 200 14% 88%;
+    --input: 200 14% 88%;
+    --ring: 240 63% 27%;
 
     --radius: 0.75rem;
 
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 210 12% 46%;
-    --sidebar-primary: 210 80% 50%;
+    --sidebar-foreground: 220 10% 46%;
+    --sidebar-primary: 240 63% 27%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 210 60% 95%;
-    --sidebar-accent-foreground: 210 80% 42%;
-    --sidebar-border: 210 18% 92%;
-    --sidebar-ring: 210 80% 50%;
+    --sidebar-accent: 200 18% 94%;
+    --sidebar-accent-foreground: 240 63% 22%;
+    --sidebar-border: 200 14% 90%;
+    --sidebar-ring: 240 63% 27%;
 
     /* Medical theme tokens */
-    --teal: 174 50% 45%;
+    --teal: 240 50% 35%;
     --teal-foreground: 0 0% 100%;
-    --gradient-primary: linear-gradient(135deg, hsl(210 80% 50%), hsl(174 50% 45%));
-    --gradient-accent: linear-gradient(135deg, hsl(210 60% 97%), hsl(174 40% 96%));
-    --gradient-hero: linear-gradient(160deg, hsl(210 25% 97%) 0%, hsl(210 40% 94%) 100%);
-    --shadow-soft: 0 2px 16px -4px hsl(210 20% 12% / 0.06);
-    --shadow-card: 0 4px 24px -8px hsl(210 20% 12% / 0.08);
-    --shadow-elevated: 0 12px 40px -12px hsl(210 80% 50% / 0.12);
+    --gradient-primary: linear-gradient(135deg, hsl(240 63% 27%), hsl(240 50% 35%));
+    --gradient-accent: linear-gradient(135deg, hsl(200 16% 96%), hsl(200 18% 94%));
+    --gradient-hero: linear-gradient(160deg, hsl(200 16% 95%) 0%, hsl(200 20% 91%) 100%);
+    --shadow-soft: 0 2px 16px -4px hsl(220 20% 14% / 0.06);
+    --shadow-card: 0 4px 24px -8px hsl(220 20% 14% / 0.08);
+    --shadow-elevated: 0 12px 40px -12px hsl(240 63% 27% / 0.15);
   }
 
   .dark {
