@@ -80,7 +80,7 @@ const Chat = () => {
   const [activeConvId, setActiveConvId] = useState<string>("conv-1");
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(() => window.innerWidth >= 768);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const responseIndexRef = useRef(0);
 
@@ -186,11 +186,21 @@ const Chat = () => {
 
   return (
     <div className="h-screen flex bg-background">
+      {/* Mobile overlay */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black/40 z-[45] md:hidden"
+          onClick={() => setSidebarOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
       {/* Sidebar */}
       <aside
         className={cn(
           "h-full border-r border-border bg-card flex flex-col shrink-0 transition-all duration-300 overflow-hidden",
-          sidebarOpen ? "w-64" : "w-0 md:w-0"
+          "fixed md:relative z-50 md:z-auto",
+          sidebarOpen ? "w-64" : "w-0"
         )}
       >
         {/* Sidebar header */}
