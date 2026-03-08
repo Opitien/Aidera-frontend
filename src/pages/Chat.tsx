@@ -239,11 +239,37 @@ const Chat = () => {
           </Button>
         </div>
 
+        {/* Search */}
+        <div className="px-3 pb-2 shrink-0">
+          <div className="relative">
+            <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
+            <input
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search chats..."
+              className="w-full bg-accent border border-border rounded-lg pl-8 pr-8 py-1.5 text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+              >
+                <X className="h-3.5 w-3.5" />
+              </button>
+            )}
+          </div>
+        </div>
+
         {/* Conversation list */}
         <div className="flex-1 overflow-y-auto px-2 pb-3">
-          <p className="text-xs font-medium text-muted-foreground px-2 mb-2">Recent</p>
+          <p className="text-xs font-medium text-muted-foreground px-2 mb-2">
+            {searchQuery ? `Results (${filteredConversations.length})` : "Recent"}
+          </p>
           <div className="space-y-0.5">
-            {conversations.map((conv) => (
+            {filteredConversations.length === 0 ? (
+              <p className="text-xs text-muted-foreground px-3 py-4 text-center">No chats found</p>
+            ) : (
+            filteredConversations.map((conv) => (
               <button
                 key={conv.id}
                 onClick={() => setActiveConvId(conv.id)}
