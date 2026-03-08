@@ -80,7 +80,7 @@ const Chat = () => {
   const [activeConvId, setActiveConvId] = useState<string>("conv-1");
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(() => window.innerWidth >= 768);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const responseIndexRef = useRef(0);
 
