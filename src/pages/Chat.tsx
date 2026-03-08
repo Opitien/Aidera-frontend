@@ -186,11 +186,20 @@ const Chat = () => {
 
   return (
     <div className="h-screen flex bg-background">
+      {/* Mobile overlay */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black/40 z-40 md:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
       {/* Sidebar */}
       <aside
         className={cn(
           "h-full border-r border-border bg-card flex flex-col shrink-0 transition-all duration-300 overflow-hidden",
-          sidebarOpen ? "w-64" : "w-0 md:w-0"
+          "fixed md:relative z-50 md:z-auto",
+          sidebarOpen ? "w-64" : "w-0"
         )}
       >
         {/* Sidebar header */}
