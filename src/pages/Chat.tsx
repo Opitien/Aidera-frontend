@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Send, Plus, Upload, Shield, MessageSquare, PanelLeftClose, PanelLeft, Trash2 } from "lucide-react";
+import { Send, Plus, Upload, Shield, MessageSquare, PanelLeftClose, PanelLeft, Trash2, Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AideraLogo from "@/components/AideraLogo";
 import { mockChatMessages, mockAIResponses } from "@/data/mockData";
