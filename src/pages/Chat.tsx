@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Send, Plus, Upload, Shield, MessageSquare, PanelLeftClose, PanelLeft, Trash2 } from "lucide-react";
+import { Send, Plus, Upload, Shield, MessageSquare, PanelLeftClose, PanelLeft, Trash2, Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AideraLogo from "@/components/AideraLogo";
 import { mockChatMessages, mockAIResponses } from "@/data/mockData";
@@ -81,8 +81,16 @@ const Chat = () => {
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(() => window.innerWidth >= 768);
+  const [searchQuery, setSearchQuery] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const responseIndexRef = useRef(0);
+
+  const filteredConversations = searchQuery.trim()
+    ? conversations.filter((c) =>
+        c.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        c.messages.some((m) => m.content.toLowerCase().includes(searchQuery.toLowerCase()))
+      )
+    : conversations;
 
   const activeConversation = conversations.find((c) => c.id === activeConvId);
   const messages = activeConversation?.messages ?? [];
@@ -231,11 +239,37 @@ const Chat = () => {
           </Button>
         </div>
 
+        {/* Search */}
+        <div className="px-3 pb-2 shrink-0">
+          <div className="relative">
+            <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
+            <input
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search chats..."
+              className="w-full bg-accent border border-border rounded-lg pl-8 pr-8 py-1.5 text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+              >
+                <X className="h-3.5 w-3.5" />
+              </button>
+            )}
+          </div>
+        </div>
+
         {/* Conversation list */}
         <div className="flex-1 overflow-y-auto px-2 pb-3">
-          <p className="text-xs font-medium text-muted-foreground px-2 mb-2">Recent</p>
+          <p className="text-xs font-medium text-muted-foreground px-2 mb-2">
+            {searchQuery ? `Results (${filteredConversations.length})` : "Recent"}
+          </p>
           <div className="space-y-0.5">
-            {conversations.map((conv) => (
+            {filteredConversations.length === 0 ? (
+              <p className="text-xs text-muted-foreground px-3 py-4 text-center">No chats found</p>
+            ) : (
+            filteredConversations.map((conv) => (
               <button
                 key={conv.id}
                 onClick={() => setActiveConvId(conv.id)}
@@ -261,7 +295,8 @@ const Chat = () => {
                   <Trash2 className="h-3.5 w-3.5" />
                 </button>
               </button>
-            ))}
+            ))
+            )}
           </div>
         </div>
 
