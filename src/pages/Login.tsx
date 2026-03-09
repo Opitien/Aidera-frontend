@@ -7,6 +7,7 @@ import AideraLogo from "@/components/AideraLogo";
 import useSEO from "@/hooks/useSEO";
 import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
+import { lovable } from "@/integrations/lovable/index";
 
 const Login = () => {
   useSEO({
