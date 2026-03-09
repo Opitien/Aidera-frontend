@@ -7,6 +7,7 @@ import { AnimatePresence } from "framer-motion";
 import ScrollToTop from "./components/ScrollToTop";
 import PageTransition from "./components/PageTransition";
 import { AuthProvider } from "./contexts/AuthContext";
+import { ThemeProvider } from "./components/theme-provider";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
