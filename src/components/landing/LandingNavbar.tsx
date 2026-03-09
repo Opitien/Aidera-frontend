@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AideraLogo from "@/components/AideraLogo";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const LandingNavbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
