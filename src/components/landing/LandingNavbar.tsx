@@ -44,7 +44,8 @@ const LandingNavbar = () => {
           <a href="#how-it-works" className="block text-sm text-muted-foreground py-2" onClick={() => setMobileOpen(false)}>How It Works</a>
           <a href="#safety" className="block text-sm text-muted-foreground py-2" onClick={() => setMobileOpen(false)}>Safety</a>
           <a href="#faq" className="block text-sm text-muted-foreground py-2" onClick={() => setMobileOpen(false)}>FAQ</a>
-          <div className="flex gap-2 pt-2">
+          <div className="flex gap-2 pt-2 items-center">
+            <ThemeToggle />
             <Button variant="ghost" asChild className="flex-1">
               <Link to="/login">Log In</Link>
             </Button>
