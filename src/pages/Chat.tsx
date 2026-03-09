@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Send, Plus, Upload, Shield, MessageSquare, PanelLeftClose, PanelLeft, Trash2, Search, X, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AideraLogo from "@/components/AideraLogo";
+import ThemeToggle from "@/components/ThemeToggle";
 import useSEO from "@/hooks/useSEO";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/contexts/AuthContext";
@@ -475,9 +476,12 @@ const Chat = () => {
               </span>
             )}
           </div>
-          <Button variant="outline" size="sm" onClick={handleNewChat} className="md:hidden">
-            <Plus className="h-4 w-4" />
-          </Button>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <Button variant="outline" size="sm" onClick={handleNewChat} className="md:hidden">
+              <Plus className="h-4 w-4" />
+            </Button>
+          </div>
         </header>
 
         <div className="bg-accent border-b border-border px-4 py-2 text-center shrink-0">

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AideraLogo from "@/components/AideraLogo";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const LandingNavbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -23,6 +24,7 @@ const LandingNavbar = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-3">
+          <ThemeToggle />
           <Button variant="ghost" asChild>
             <Link to="/login">Log In</Link>
           </Button>
@@ -42,7 +44,8 @@ const LandingNavbar = () => {
           <a href="#how-it-works" className="block text-sm text-muted-foreground py-2" onClick={() => setMobileOpen(false)}>How It Works</a>
           <a href="#safety" className="block text-sm text-muted-foreground py-2" onClick={() => setMobileOpen(false)}>Safety</a>
           <a href="#faq" className="block text-sm text-muted-foreground py-2" onClick={() => setMobileOpen(false)}>FAQ</a>
-          <div className="flex gap-2 pt-2">
+          <div className="flex gap-2 pt-2 items-center">
+            <ThemeToggle />
             <Button variant="ghost" asChild className="flex-1">
               <Link to="/login">Log In</Link>
             </Button>
