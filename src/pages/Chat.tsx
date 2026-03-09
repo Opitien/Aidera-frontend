@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Send, Plus, Upload, Shield, MessageSquare, PanelLeftClose, PanelLeft, Trash2, Search, X, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AideraLogo from "@/components/AideraLogo";
+import ThemeToggle from "@/components/ThemeToggle";
 import useSEO from "@/hooks/useSEO";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/contexts/AuthContext";
