@@ -476,9 +476,12 @@ const Chat = () => {
               </span>
             )}
           </div>
-          <Button variant="outline" size="sm" onClick={handleNewChat} className="md:hidden">
-            <Plus className="h-4 w-4" />
-          </Button>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <Button variant="outline" size="sm" onClick={handleNewChat} className="md:hidden">
+              <Plus className="h-4 w-4" />
+            </Button>
+          </div>
         </header>
 
         <div className="bg-accent border-b border-border px-4 py-2 text-center shrink-0">
