@@ -335,29 +335,11 @@ const Chat = () => {
     return `${Math.floor(diff / 86400000)}d ago`;
   };
 
-  const formatContent = (content: string) => {
-    return content.split("\n").map((line, i) => {
-      if (line.startsWith("**") && line.endsWith("**")) {
-        return <p key={i} className="font-semibold mt-2 mb-1">{line.replace(/\*\*/g, "")}</p>;
-      }
-      if (line.startsWith("- **")) {
-        const parts = line.replace("- **", "").split("**");
-        return (
-          <p key={i} className="ml-2 mb-0.5">
-            • <span className="font-semibold">{parts[0]}</span>{parts[1] || ""}
-          </p>
-        );
-      }
-      if (line.startsWith("- ")) {
-        return <p key={i} className="ml-2 mb-0.5">• {line.slice(2)}</p>;
-      }
-      if (line.startsWith("*") && line.endsWith("*")) {
-        return <p key={i} className="text-muted-foreground text-xs mt-3 italic">{line.replace(/\*/g, "")}</p>;
-      }
-      if (line === "") return <br key={i} />;
-      return <p key={i} className="mb-1">{line}</p>;
-    });
-  };
+  const formatContent = (content: string) => (
+    <div className="prose prose-sm dark:prose-invert max-w-none prose-headings:font-semibold prose-headings:mt-4 prose-headings:mb-2 prose-p:my-2 prose-ul:my-2 prose-ol:my-2 prose-li:my-0.5 prose-pre:bg-muted prose-pre:text-foreground prose-code:before:content-none prose-code:after:content-none prose-code:bg-muted prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-a:text-primary">
+      <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
+    </div>
+  );
 
   return (
     <div className="h-screen flex bg-background">
