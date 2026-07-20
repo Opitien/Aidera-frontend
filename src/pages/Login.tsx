@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -22,11 +22,10 @@ const Login = () => {
   const { signIn, session } = useAuth();
   const { toast } = useToast();
 
-  // Redirect if already logged in
-  if (session) {
-    navigate("/chat", { replace: true });
-    return null;
-  }
+  // Redirect if already logged in (in effect to avoid render-phase navigation)
+  useEffect(() => {
+    if (session) navigate("/chat", { replace: true });
+  }, [session, navigate]);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();

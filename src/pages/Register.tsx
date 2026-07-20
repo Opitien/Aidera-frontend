@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -24,10 +24,9 @@ const Register = () => {
   const { signUp, session } = useAuth();
   const { toast } = useToast();
 
-  if (session) {
-    navigate("/chat", { replace: true });
-    return null;
-  }
+  useEffect(() => {
+    if (session) navigate("/chat", { replace: true });
+  }, [session, navigate]);
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();

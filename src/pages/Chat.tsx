@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { Send, Plus, Upload, Shield, MessageSquare, PanelLeftClose, PanelLeft, Trash2, Search, X, LogOut } from "lucide-react";
+import { Send, Plus, Upload, Shield, MessageSquare, PanelLeftClose, PanelLeft, Trash2, Search, X, LogOut, Settings as SettingsIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AideraLogo from "@/components/AideraLogo";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -449,6 +449,9 @@ const Chat = () => {
           {profile && (
             <p className="text-xs text-muted-foreground truncate">{profile.name || profile.email}</p>
           )}
+          <Link to="/settings" className="flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors w-full">
+            <SettingsIcon className="h-3.5 w-3.5" /> Settings
+          </Link>
           <button onClick={handleLogout} className="flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors w-full">
             <LogOut className="h-3.5 w-3.5" /> Sign out
           </button>

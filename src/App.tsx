@@ -15,6 +15,7 @@ import Register from "./pages/Register";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import Chat from "./pages/Chat";
+import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 import MedicalDisclaimer from "./pages/MedicalDisclaimer";
 import TermsOfService from "./pages/TermsOfService";
@@ -34,6 +35,7 @@ const AnimatedRoutes = () => {
         <Route path="/forgot-password" element={<PageTransition><ForgotPassword /></PageTransition>} />
         <Route path="/reset-password" element={<PageTransition><ResetPassword /></PageTransition>} />
         <Route path="/chat" element={<PageTransition><ProtectedRoute><Chat /></ProtectedRoute></PageTransition>} />
+        <Route path="/settings" element={<PageTransition><ProtectedRoute><Settings /></ProtectedRoute></PageTransition>} />
         <Route path="/medical-disclaimer" element={<PageTransition><MedicalDisclaimer /></PageTransition>} />
         <Route path="/terms-of-service" element={<PageTransition><TermsOfService /></PageTransition>} />
         <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
