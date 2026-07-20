@@ -449,6 +449,9 @@ const Chat = () => {
           {profile && (
             <p className="text-xs text-muted-foreground truncate">{profile.name || profile.email}</p>
           )}
+          <Link to="/settings" className="flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors w-full">
+            <SettingsIcon className="h-3.5 w-3.5" /> Settings
+          </Link>
           <button onClick={handleLogout} className="flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors w-full">
             <LogOut className="h-3.5 w-3.5" /> Sign out
           </button>
